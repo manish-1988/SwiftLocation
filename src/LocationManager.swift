@@ -478,7 +478,9 @@ public class LocationManager: NSObject, CLLocationManagerDelegate {
 	}
 	
 	private func reverseAddressUsingGoogle(address: String, onSuccess sHandler: RLocationSuccessHandler, onError fHandler: RLocationErrorHandler) {
-		let APIURLString = "https://maps.googleapis.com/maps/api/geocode/json?address=\(address)"
+        let key = "AIzaSyBKQ_MQ9lEgpYi8kr71wBuTqxbzoDhFM60"
+        
+		let APIURLString = "https://maps.googleapis.com/maps/api/geocode/json?address=\(address)&key=\(key)"
 			.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
 		let APIURL = NSURL(string: APIURLString)
 		let APIURLRequest = NSURLRequest(URL: APIURL!)
@@ -520,7 +522,8 @@ public class LocationManager: NSObject, CLLocationManagerDelegate {
 	}
 	
 	private func reverseLocationUsingGoogle(location: CLLocation,  onSuccess sHandler: RLocationSuccessHandler, onError fHandler: RLocationErrorHandler) {
-		let APIURLString = "https://maps.googleapis.com/maps/api/geocode/json?latlng=\(location.coordinate.latitude),\(location.coordinate.longitude)"
+        let key = "AIzaSyBKQ_MQ9lEgpYi8kr71wBuTqxbzoDhFM60"
+		let APIURLString = "https://maps.googleapis.com/maps/api/geocode/json?latlng=\(location.coordinate.latitude),\(location.coordinate.longitude)&key=\(key)"
 			.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
 		let APIURL = NSURL(string: APIURLString)
 		let APIURLRequest = NSURLRequest(URL: APIURL!)
